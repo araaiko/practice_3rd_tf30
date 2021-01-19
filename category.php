@@ -15,7 +15,7 @@
 
 
             <div class="archive-head m_description">
-                <div class="archive-lead">ARCHIVE</div>
+                <div class="archive-lead">CATEGORY</div>
                 <h1 class="archive-title m_category"><?php the_archive_title(); //一覧ページ名を表示 ?></h1><!-- /archive-title -->
                 <div class="archive-description">
                     <p>
