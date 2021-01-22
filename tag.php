@@ -8,13 +8,8 @@
         <!-- primary -->
         <main id="primary">
 
-            <?php if (function_exists('bcn_display')) : ?>
-                <!-- breadcrumb -->
-                <div class="breadcrumb">
-                    <?php bcn_display(); ?>
-                </div><!-- /breadcrumb -->
-            <?php endif; ?>
-
+            <!--==  breadcrumb読み込み  ==-->
+            <?php get_template_part('template-parts/breadcrumb'); ?>
 
             <div class="archive-head m_description">
                 <div class="archive-lead">TAG</div>
@@ -61,7 +56,7 @@
                                     // カテゴリー１つ目の名前を表示
                                     $category = get_the_category();
                                     if ($category[0]) {
-                                        echo '<div カテゴリーとして作成したタグ">' . $category[0]->cat_name . '</div><!-- /entry-item-tag -->';
+                                        echo '<div class="entry-item-tag">' . $category[0]->cat_name . '</div><!-- /entry-item-tag -->';
                                     }
                                     ?>
                                     <time class="entry-item-published" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time><!-- /entry-item-published -->
@@ -79,26 +74,8 @@
                 </div><!-- /entries -->
             <?php endif; ?>
 
-            <?php if (paginate_links()) : //ページが1ページ以上あれば以下を表示 
-            ?>
-                <!-- pagenation -->
-                <div class="pagenation">
-
-                    <?php
-                    echo
-                    paginate_links(
-                        array(
-                            'end_size' => 1,
-                            'mid_size' => 1,
-                            'prev_next' => true,
-                            'prev_text' => '<i class="fas fa-angle-left"></i>', //fontawesome使用
-                            'next_text' => '<i class="fas fa-angle-right"></i>', //fontawesome使用
-                        )
-                    );
-                    ?>
-
-                </div><!-- /pagenation -->
-            <?php endif; ?>
+            <!--==  paginationの読み込み  ==-->
+            <?php get_template_part('template-parts/pagination'); ?>
 
         </main><!-- /primary -->
 

@@ -82,13 +82,8 @@
                             <!-- entry-item-body -->
                             <div class="entry-item-body">
                                 <div class="entry-item-meta">
-                                    <?php
-                                    // カテゴリー１つ目の名前を表示
-                                    $category = get_the_category();
-                                    if ($category[0]) {
-                                        echo '<div class="entry-item-tag">' . $category[0]->cat_name . '</div><!-- /entry-item-tag -->';
-                                    }
-                                    ?>
+                                    <!-- trueを引数として渡すとリンク付き、falseを渡すとリンクなし -->
+                                    <div class="entry-item-tag"><?php my_the_post_category(false); ?></div><!-- /entry-item-tag -->
                                     <!-- 公開日時を動的に表示する -->
                                     <time class="entry-item-published" datetime="<?php the_time('c'); ?>"><?php the_time('Y/n/j'); ?></time><!-- /entry-item-published -->
                                 </div><!-- /entry-item-meta -->
@@ -109,24 +104,8 @@
 
             <?php endif; ?>
 
-            <?php if (paginate_links()) : //ページが1ページ以上あれば以下を表示 
-            ?>
-                <!-- pagenation -->
-                <div class="pagenation">
-                    <?php
-                    echo
-                    paginate_links(
-                        array(
-                            'end_size' => 1,
-                            'mid_size' => 1,
-                            'prev_next' => true,
-                            'prev_text' => '<i class="fas fa-angle-left"></i>',
-                            'next_text' => '<i class="fas fa-angle-right"></i>',
-                        )
-                    );
-                    ?>
-                </div><!-- /pagenation -->
-            <?php endif; ?>
+            <!--==  paginationの読み込み  ==-->
+            <?php get_template_part('template-parts/pagination'); ?>
 
         </main><!-- /primary -->
 
