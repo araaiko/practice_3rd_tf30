@@ -133,4 +133,23 @@ foreach ( $tags as $tag ) {
 }
 
 
+/* ウィジェットの有効化 */
+/**
+ * ウィジェットの登録
+ * 
+ */
+function my_widget_init() {
+  register_sidebar(
+  array(
+  'name' => 'サイドバー', //表示するエリア名
+  'id' => 'sidebar', //id
+  'before_widget' => '<div id="%1$s" class="widget %2$s">',
+  'after_widget' => '</div>',
+  'before_title' => '<div class="widget-title">',
+  'after_title' => '</div>',
+  )
+  );
+  }
+  add_action( 'widgets_init', 'my_widget_init' );
+
 ?>
