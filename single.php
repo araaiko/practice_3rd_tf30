@@ -77,7 +77,7 @@
                             <div class="related-title">関連記事</div>
 
                             <!--==  関連記事の表示の読み込み  ==-->
-                            <?php get_template_part('template-parts/entry-related'); ?>
+                            <?php get_template_part('template-parts/entry', 'related'); ?>
 
                         </div><!-- /entry-related -->
 

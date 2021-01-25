@@ -33,7 +33,7 @@
 	</footer><!-- /footer -->
 
 	<!-- シングルページと固定ページで表示するシェアボタンの読み込み -->
-	<?php get_template_part('template-parts/footer-sns') ; ?>
+	<?php get_template_part('template-parts/footer', 'sns') ; ?>
 
 	<div class="floating">
 		<a href="#"><i class="fas fa-chevron-up"></i></a>
