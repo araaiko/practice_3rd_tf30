@@ -69,7 +69,11 @@
                         <!-- entry-tag-items -->
                         <div class="entry-tag-items">
                             <div class="entry-tag-head">タグ</div><!-- /entry-tag-head -->
-                            <?php my_the_post_tags(); ?>
+                            <?php
+                            if (has_tag($tags)) {
+                                my_the_post_tags();
+                            }
+                            ?>
                         </div><!-- /entry-tag-items -->
 
 
