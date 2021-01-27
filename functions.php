@@ -196,14 +196,14 @@ function get_post_views( $id = 0 ){
   delete_post_meta($id, $count_key);
   add_post_meta($id, $count_key, '1');
   }elseif( $count > 0 ){
-  if(!is_user_logged_in()){ //管理者（自分）の閲覧を除外
+  if(!is_user_logged_in()){ //管理者（自分）の閲覧を除外（ユーザーがログインしていない場合はカウントしてね＝ユーザー以外の人が閲覧している時はカウントしてね）
   $count++;
   update_post_meta($id, $count_key, $count);
   }
   }
   //$countが0のままの場合（404や該当記事の検索結果が0件の場合）は何もしない。
   }
-  add_action( 'template_redirect', 'set_post_views', 10 );
+  add_action( 'template_redirect', 'set_post_views', 10 ); //一連の処理の一番最後でいいので優先度を10にしている
   
 
 ?>

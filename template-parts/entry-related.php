@@ -43,6 +43,6 @@ $query = new WP_Query($args);
 
     </div><!-- /related-items -->
 
-<?php else : echo '関連記事はありません'; ?>
+    <?php else : echo '関連記事はありません'; ?>
 
 <?php endif; ?>

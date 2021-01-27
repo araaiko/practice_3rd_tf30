@@ -1,5 +1,5 @@
-    <!-- widget_popular -->
-    <div class="widget widget_popular">
+   <!-- widget_popular -->
+   <div class="widget widget_popular">
         <div class="widget-title">人気記事</div>
 
         <div class="wpost-items m_ranking">
@@ -10,8 +10,8 @@
                 'post_type' => 'post',
                 'posts_per_page' => 5,
                 'meta_key' => 'view_counter',
-                'orderby' => 'meta_value_num',
-                'order' => 'DESC',
+                'orderby' => 'meta_value_num', //カスタムフィールドで取得した値（今回はアクセス数）を数値として並び替える
+                'order' => 'DESC', //降順に
             );
             $popular_posts = get_posts($args);
             foreach ($popular_posts as $post) : setup_postdata($post);
