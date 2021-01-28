@@ -206,4 +206,23 @@ function get_post_views( $id = 0 ){
   add_action( 'template_redirect', 'set_post_views', 10 ); //一連の処理の一番最後でいいので優先度を10にしている
   
 
+/**
+* 検索結果から固定ページを除外する
+* @param string $search SQLのWHERE句の検索条件文
+* @param object $wp_query WP_Queryのオブジェクト
+* @return string $search 条件追加後の検索条件文
+*/
+function my_posts_search( $search, $wp_query ){
+
+  //検索結果ページ・メインクエリ・管理画面以外の3つの条件が揃った場合
+if ( $wp_query->is_search() && $wp_query->is_main_query() && !is_admin() ){
+
+    // 検索結果を投稿タイプに絞る
+  $search .= " AND post_type = 'post' ";
+  return $search;
+}
+  return $search;
+}
+add_filter('posts_search','my_posts_search', 10, 2);
+
 ?>
