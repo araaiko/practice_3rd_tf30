@@ -1,6 +1,7 @@
 <!--==  header.php 読み込み ==-->
 <?php get_header(); ?>
 
+
 <!-- content -->
 <div id="content">
     <div class="inner">
@@ -64,6 +65,9 @@
                                 )
                             );
                             ?>
+                            <!--==  my_shortcode_btn  ==-->
+                            <?php echo do_shortcode('[btn link="http://3rdtf30.local/contact/"]お問い合わせはこちら[/btn]'); ?>
+
                         </div><!-- /entry-body -->
 
                         <!-- entry-tag-items -->

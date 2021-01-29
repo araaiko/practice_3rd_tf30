@@ -29,3 +29,6 @@ jQuery('a[href^="#"]').click(function () {
 	);
 	return false;
 });
+
+/* highlight.js起動＆各種設定 */
+hljs.initHighlightingOnLoad();

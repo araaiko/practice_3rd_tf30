@@ -23,7 +23,9 @@ add_action('after_setup_theme', 'my_setup');
 function my_script_init()
 {
 wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.2/css/all.css', array(), '5.8.2', 'all');
+wp_enqueue_style('style_highlight', get_template_directory_uri() . '/css/styles/tomorrow-night-eighties.css', array(), null, 'all');
 wp_enqueue_style('my', get_template_directory_uri() . '/css/style.css', array(), '1.0.0', 'all');
+wp_enqueue_script('js_highlight', get_template_directory_uri() . '/js/highlight.pack.js', array());
 wp_enqueue_script('my', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true);
 //sns.jsを追記
 if( is_single() || is_page() ){
@@ -31,7 +33,6 @@ if( is_single() || is_page() ){
   }
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
-
 
 /* メニューの登録 */
 function my_menu_init()
@@ -224,5 +225,31 @@ if ( $wp_query->is_search() && $wp_query->is_main_query() && !is_admin() ){
   return $search;
 }
 add_filter('posts_search','my_posts_search', 10, 2);
+
+
+/**
+* ボタンのショートコード
+*
+* @param array $atts ショートコードの引数.
+* @param string $content ショートコードのコンテンツ.
+* @return string ボタンのHTMLタグ.
+*/
+function my_shortcode_btn( $atts, $content = '' ) {
+  return '<div class="entry-btn"><a class="btn" href="' . $atts['link'] . '">' . $content . '</a></div><!-- /entry-btn -->';
+  }
+  add_shortcode( 'btn', 'my_shortcode_btn' );
+
+
+/**
+ * highlight.jsのショートコード（HTML）
+ * 
+ * @param array $atts ショートコードの引数
+ * @param string $content ショートコードのコンテンツ.
+ * @return string html表示付きのHTMLタグ.
+ */
+function my_shortcode_highlight( $atts, $content = '' ) {
+  return '<pre><code class="' . $atts['class'] . '">' . esc_html($content) . "\n" . '</code></pre>';
+}
+add_shortcode( 'highlight', 'my_shortcode_highlight' );
 
 ?>
