@@ -241,7 +241,7 @@ function my_shortcode_btn( $atts, $content = '' ) {
 
 
 /**
- * highlight.jsのショートコード（HTML）
+ * highlight.jsのショートコード
  * 
  * @param array $atts ショートコードの引数
  * @param string $content ショートコードのコンテンツ.
