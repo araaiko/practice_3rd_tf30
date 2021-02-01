@@ -20,7 +20,8 @@
 
     <?php wp_head(); ?>
 
-    <link rel="icon" href="./img/icon-home.png">
+    <?php echo '<link rel="icon" href="'. esc_url(get_template_directory_uri()) . '/img/icon-home.png">'; ?>
+
 
 </head>
 

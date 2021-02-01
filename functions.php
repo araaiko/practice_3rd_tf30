@@ -1,4 +1,12 @@
 <?php 
+/**
+ * MySQL データベース情報
+ * データベース名：araaiko_wp3
+ * ユーザー名：araaiko_wp3
+ * パスワード：89zjbfrbmy
+ */
+
+
 /* テーマのセットアップとcss,jsファイルの読み込み */
 // テーマのセットアップ
 function my_setup()
