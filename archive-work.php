@@ -67,7 +67,18 @@ get_header(); ?>
                                     <div class="entry-item-tag"><?php echo esc_html(get_the_terms(get_the_ID(), 'genre')[0]->name); ?></div><!-- /.entry-item-tag -->
                                 </div><!-- /.entry-item-meta -->
                                 <h2 class="entry-item-title"><?php the_title(); ?></h2><!-- /.entry-item-title -->
-                                <div class="entry-item-excerpt">ここに抜粋が入ります</div><!-- /.entry-item-excerpt -->
+
+                                <div class="entry-item-excerpt">
+                                <?php
+                                if(mb_strlen(get_field('overview'), 'UTF-8') >= 40){
+                                    $content = mb_substr(get_field('overview'), 0, 40, 'UTF-8');
+                                    echo $content . '......';
+                                }else{
+                                    the_field('overview');
+                                }                                
+                                ?>
+                                </div><!-- /.entry-item-excerpt -->
+
                             </div><!-- /.entry-item-body -->
 
                         </a><!-- /.entry-item -->
